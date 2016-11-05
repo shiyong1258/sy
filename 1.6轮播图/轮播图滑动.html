@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 680px;
+            height: 344px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content img{
+            float: left;
+        }
+        #content {
+            width: 2720px ;
+            position: absolute;
+            left: 0;
+        }
+        #content .selected{
+            display: block;
+        }
+        #tab li{
+            float: left;
+            width:20px;
+            height: 20px;
+            background: #cccccc;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            color: black;
+            cursor: pointer;
+        }
+        #tab{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #tab2{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #tab2 span{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: black;
+            text-align: center;
+            color: white;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        #tab .selected{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        <img class="selected " src="img/1.jpg">
+        <img src="img/2.jpg">
+        <img src="img/3.jpg">
+        <img src="img/4.jpg">
+    </div>
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="tab2">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+</div>
+<script src="jss.js"></script>
+<script>
+    var oContainer=document.getElementById("container");
+    var aLi=oContainer.getElementsByTagName("li");
+    var aImg=oContainer.getElementsByTagName("img");
+    var oContent=document.getElementById("content");
+    var iNow=0;//存储当前显示的索引
+    var oNext=document.getElementById("next");
+    var oPrev=document.getElementById("prev");
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onmouseover=function(){
+            changeImg(this.index);
+            iNow=this.index;
+        }
+    }
+    oNext.onclick=function(){
+        iNow++;
+        if(iNow==aLi.length){
+            iNow=0;
+        }
+        changeImg(iNow);
+    }
+    oPrev.onclick=function(){
+        iNow--;
+        if(iNow==-1){
+            iNow=aLi.length-1;
+        }
+        changeImg(iNow);
+    }
+    function changeImg(a){
+        for(var j=0;j<aLi.length;j++){
+            aLi[j].className="";
+        }
+        aLi[a].className="selected";
+        animate(oContent,{left:-aImg[0].offsetWidth*a});
+    }
+    var timer;
+    timer=setInterval(function(){
+        oNext.onclick();
+    },1000);//每隔1000毫秒发生一次 oNext.onclick事件
+    oContainer.onmouseover=function(){
+        clearInterval(timer);
+    }
+    oContainer.onmouseout=function(){
+        timer=setInterval(function(){
+            oNext.onclick();
+        },1000);
+    }
+</script>
+</body>
+</html>
