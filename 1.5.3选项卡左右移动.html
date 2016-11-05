@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width:400px;
+            height: 300px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #container ul{
+            overflow: hidden;
+        }
+        #container li{
+            float: left;
+            width: 120px;
+            height: 30px;
+            margin-right: 5px;
+            cursor: pointer;
+            background: #cccccc;
+            text-align: center;
+            text-decoration: none;
+            line-height: 30px;
+        }
+        #container .selected{
+            background: #000000;
+            color: white;
+            position: relative;
+        }
+        #content{
+            width: 1200px;
+            height: 270px;
+            border-top: 1px solid black;
+            position: absolute;
+            /*left: 20px;*/
+            /*top: 30px;*/
+        }
+        #content div{
+            background:#cccccc;
+            width:400px;
+            height: 270px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="tab">
+        <li class="selected">111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <div id="content">
+        <div>001</div>
+        <div>002</div>
+        <div>003</div>
+    </div>
+</div>
+<script src="js.js"></script>
+<script>
+    var oTab=document.getElementById("tab");
+    var aLi=oTab.getElementsByTagName("li");
+    var oContent=document.getElementById("content");
+    var aDiv=oContent.getElementsByTagName("div");
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onclick=function(){
+            for (var i=0;i<aLi.length;i++){
+                aLi[i].className="";
+            }
+            this.className="selected";
+//            oContent.style.left=-aDiv[0].offsetWidth*this.index+"px";
+            animate(oContent,{left:-aDiv[0].offsetWidth*this.index});
+        }
+    }
+</script>
+</body>
+</html>
+<!--1.浮动-->
+<!--2.父元素定位-->
+<!--3.div移动animate()-->
