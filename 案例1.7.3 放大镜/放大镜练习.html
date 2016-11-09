@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #small-p{
+            width:400px;
+            height: 400px;
+        }
+        #big-p{
+            width:800px;
+            height: 800px;
+            position: absolute;
+        }
+        #container{
+            width: 800px;
+            height: 800px;
+        }
+        #small-content{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;
+        }
+        #big-content{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;
+            overflow: hidden;
+            display: none;
+        }
+        #drag{
+            background: #cccccc;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.5;
+            left: 0;
+            top: 0;
+            filter: alpha(opacity=50);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="small-content">
+            <img id="small-p" src="images/3.JPG">
+            <div id="drag">
+            </div>
+        </div>
+        <div id="big-content">
+            <img id="big-p" src="images/3.JPG">
+        </div>
+    </div>
+    <script>
+        var oSmallp=document.getElementById("small-p");
+        var oDrag=document.getElementById("drag");
+        var oBigp=document.getElementById("big-p");
+        var oSmallcontent=document.getElementById("small-content");
+        var oBigcontent=document.getElementById("big-content");
+        oSmallcontent.onmouseover=function(){
+            oDrag.style.display="block";
+            oBigcontent.style.display="block";
+        }
+        oSmallcontent.onmousemove=function(e) {
+            e = e || window.event;
+            var iLeft = e.clientX - oDrag.offsetWidth / 2;
+            var iTop = e.clientY - oDrag.offsetHeight / 2;
+            if (iLeft < 0) {
+                iLeft = 0;
+            } else if (iLeft > oSmallp.offsetWidth - oDrag.offsetWidth) {
+                iLeft = oSmallp.offsetWidth - oDrag.offsetWidth;
+            }
+            if (iTop < 0) {
+                iTop = 0;
+            } else if (iTop > oSmallcontent.offsetHeight - oDrag.offsetHeight) {
+                iTop = oSmallp.offsetHeight - oDrag.offsetHeight;
+            }
+            oDrag.style.left=iLeft+"px";
+            oDrag.style.top=iTop+"px";
+        var baifenbiX=oDrag.offsetLeft/(oSmallcontent.offsetWidth-oDrag.offsetWidth);
+        var bLeft=baifenbiX*(oBigp.offsetWidth-oBigcontent.offsetWidth);
+        oBigp.style.left=-bLeft+"px";
+        var baifenbiY=oDrag.offsetTop/(oSmallcontent.offsetHeight-oDrag.offsetHeight);
+        var bTop=baifenbiY*(oBigp.offsetHeight-oBigcontent.offsetHeight);
+        oBigp.style.top=-bTop+"px";
+        };
+        oSmallcontent.onmouseout=function(){
+            oDrag.style.display="none";
+            oBigcontent.style.display="none";
+        }
+    </script>
+</body>
+</html>
