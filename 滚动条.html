@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 220px;
+            height: 450px;
+            background: #cccccc;
+            overflow: hidden
+        }
+        #content{
+            width: 200px;
+            background: red;
+            float: left;
+            position:relative;
+        }
+        #scroll-bar{
+            width: 20px;
+            height: 450px;
+            background: yellow;
+            float: left;
+            position: relative;
+        }
+        #scroll-btn{
+            width: 20px;
+            height: 30px;
+            background: #cccccc;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <p>
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            </p>
+        </div>
+        <div id="scroll-bar">
+            <span id="scroll-btn"></span>
+        </div>
+    </div>
+    <script>
+        var oContainer=document.getElementById("container");
+        var oBtn=document.getElementById("scroll-btn");
+        var oBar=document.getElementById("scroll-bar");
+        var oContent=document.getElementById("content");
+        oBtn.onmousedown = function(e){
+            e=e||window.event;
+            var top= e.clientY-oBtn.offsetTop;
+            document.onmousemove=function(event){
+                event=event||window.event;
+                var iTop = event.clientY-top;
+                if(iTop<0){
+                    iTop=0;
+                }else if(iTop>oBar.offsetHeight-oBtn.offsetHeight){
+                    iTop=oBar.offsetHeight-oBtn.offsetHeight;
+                }
+                oBtn.style.top=iTop+"px";
+                var baifenbi=oBtn.offsetTop/(oBar.offsetHeight-oBtn.offsetHeight);
+                //oBtn.offsetTop表示小按钮最上边距离body最上边的距离
+                //oBtn.offsetHeight表示小按钮的高度
+                //offsetTop,offsetLeft只能取值不能赋值
+                var cTop=baifenbi*(oContent.offsetHeight-oContainer.offsetHeight);
+                oContent.style.top=-cTop+"px";
+                return false;//消除与左边粘连现象
+            }
+           }
+        document.onmouseup=function(){
+            document.onmousemove=null;
+        }
+    </script>
+</body>
+</html>
