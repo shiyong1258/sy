@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            border: 1px solid black;
+            width: 400px;
+            height: 200px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            position:absolute;
+        }
+        #content li{
+            width: 120px;
+            height: 120px;
+            background: #000000;
+            color: white;
+            font-size: 50px;
+            margin-right:5px;
+            float: left;
+            text-align: center;
+            line-height: 120px;
+        }
+        #arrow{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -110px;
+        }
+        #arrow span{
+            background:#cccccc;
+            color: blue;
+            width: 100px;
+            height: 50px;
+            margin-right: 10px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrow">
+        <span id="turn-left">&lt;&lt;向左</span>
+        <span id="turn-right">向右&gt;&gt;</span>
+    </div>
+    </div>
+    <script>
+        var oContainer=document.getElementById("container");
+        var oContent=document.getElementById("content");
+        oContent.innerHTML=oContent.innerHTML+oContent.innerHTML;
+        var aLi=oContent.getElementsByTagName("li");
+        var oTleft=document.getElementById("turn-left");
+        var oTright=document.getElementById("turn-right");
+        oContent.style.width=aLi.length*(aLi[0].offsetWidth+5)+"px";
+        var speed=-2;
+        setInterval(function(){
+            if(oContent.offsetLeft<=-oContent.offsetWidth/2){
+                oContent.style.left=0;
+            }
+            if(oContent.offsetLeft>0){
+                oContent.style.left=-oContent.offsetWidth/2+"px";
+            }
+            oContent.style.left=oContent.offsetLeft+speed+"px";
+        },20);
+        oTleft.onclick=function(){
+            speed=-2;
+        };
+        oTright.onclick=function(){
+            speed=2;
+        }
+    </script>
+</body>
+</html>
