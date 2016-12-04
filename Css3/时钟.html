@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000000;
+            border-radius: 50%;/*变成圆圈*/
+            margin:100px auto;
+            position: relative;
+        }
+        li{
+            width:2px;
+            height:4px;
+            background: #000000;
+            position: absolute;
+            top:0;
+            left: 99px;
+            -webkit-transform-origin: center 100px;/*找中心点*/
+        }
+        li:nth-child(5n+1){
+            height: 8px;
+        }
+        #hour{
+              width:6px;
+              height:35px;
+              background: #000000;
+              position: absolute;
+              top:65px;
+              left: 97px;
+              -webkit-transform-origin: center 35px;
+        }
+        #minute{
+            width: 4px;
+            height:45px;
+            background: #00ff00;
+            position: absolute;
+            top:55px;
+            left: 98px;
+            -webkit-transform-origin: center 45px;
+        }
+        #second{
+            width: 2px;
+            height:55px;
+            background: red;
+            position: absolute;
+            top: 45px;
+            left: 99px;
+            -webkit-transform-origin: center 55px;
+            /*-webkit-transform: rotate(6deg);*/
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <ul id="content">
+        </ul>
+    </div>
+    <script>
+        var oContent=document.getElementById("content");
+        var oHour=document.getElementById("hour");
+        var oMin=document.getElementById("minute");
+        var oSecond=document.getElementById("second");
+        var html="";
+        for(var i=0;i<60;i++){
+            html+='<li style="-webkit-transform: rotate('+i*6+'deg)"></li>' /*变成60个li*/
+        }
+        oContent.innerHTML=html;
+        function run(){
+        var date=new Date;
+        var iMin=date.getMinutes();
+        var iSecond=date.getSeconds();
+        var iHour=date.getHours()+iMin/60;
+        oHour.style.WebkitTransform='rotate('+30*iHour+'deg)';/*Transform变形   rotate旋转*/
+        oSecond.style.WebkitTransform='rotate('+6*iSecond+'deg)';
+        oMin.style.WebkitTransform='rotate('+6*iMin+'deg)';
+        }
+        run();
+       setInterval(function(){
+            run();
+        },1000)
+    </script>
+</body>
+</html>
