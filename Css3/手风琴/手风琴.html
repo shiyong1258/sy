@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 800px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+         li{
+            position: absolute;
+            top:0;
+            -webkit-transition: transform 2s ease;
+        }
+        img{
+            width: 600px;
+            height: 300px;
+        }
+       span{
+            width: 600px;
+            height: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+           background: #000000;
+           opacity: 0.5;
+           filter: alpha(opacity:50);
+           color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul>
+    <li><img src="images/1.jpg"/><span>001</span></li>
+    <li><img src="images/2.jpg"/><span>002</span></li>
+    <li><img src="images/3.jpg"/><span>003</span></li>
+    <li><img src="images/4.jpg"/><span>004</span></li>
+    <li><img src="images/5.jpg"/><span>005</span></li>
+    </ul>
+</div>
+<script>
+//    var oContainer=document.getElementById("container");
+//    var aImg=oContainer.getElementsByTagName("img");
+//    var oImg=document.getElementById("img");
+    var aLi=document.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++) {
+        aLi[i].style.left = i * 160 + "px";
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            var iNow = this.index;
+            for (var i = 0; i < aLi.length; i++) {
+                if (i <= iNow) {
+                    var x = i * 50 - i * 160;
+                    aLi[i].style.WebkitTransform = "translateX(" + x + "px)";
+                } else {
+                    var y = (800 - (aLi.length - i) * 50) - 160 * i;
+                    aLi[i].style.WebkitTransform = "translateX(" + y+ "px)";
+                }
+            }
+
+        };
+        aLi[i].onmouseout = function () {
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].style.WebkitTransform = "";
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

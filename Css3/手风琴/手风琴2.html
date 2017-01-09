@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url(images/8.jpg)repeat;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 800px;
+            height: 300px;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        #container ul{
+            width: 800px;
+       }
+       #container li{
+           float: left;
+           width: 160px;
+           height: 300px;
+           -webkit-transition: width 2s ease;
+           position: relative;
+       }
+       #container li img{
+           width: 600px;
+           height: 300px;
+        }
+        #container span{
+            width: 600px;
+            height: 30px;
+            background: #000000;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: #ffffff;
+        }
+        #container ul:hover li{
+            width: 50px;
+        }
+        #container ul li:hover {
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul>
+        <li><img src="images/1.jpg"/><span>001</span></li>
+        <li><img src="images/2.jpg"/><span>002</span></li>
+        <li><img src="images/3.jpg"/><span>003</span></li>
+        <li><img src="images/4.jpg"/><span>004</span></li>
+        <li><img src="images/5.jpg"/><span>005</span></li>
+    </ul>
+</div>
+</body>
+</html>

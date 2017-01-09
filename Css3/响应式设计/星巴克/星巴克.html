@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>当季新品|星巴克</title>
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+    <style>
+        *{
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #logo{
+            width: 75px;
+            height: 75px;
+            margin: 0 auto;
+        }
+        #logo img{
+            width: 75px;
+            height: 75px;
+        }
+        #container ul{
+            position:absolute;
+            top: 0;
+            right: 0;
+            padding-top: 30px;
+        }
+        #caidan{
+            padding-top: 30px;
+            position: absolute;
+            left: 20px;
+        }
+        #caidan .icon{
+            font-size: 20px;
+        }
+        #content img{
+            width: 100%;
+        }
+        #content{
+            padding-top: 5px;
+            position: relative;
+        }
+        #more{
+            width: 80px;
+            height: 40px;
+            background: orange;
+            color: white;
+            opacity: 0.8;
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            margin-left: -40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #more:hover{
+            opacity: 0.5;
+        }
+        #adv{
+            width: 35px;
+            height: 15px;
+            background: #000;
+            color: #fff;
+            position: absolute;
+            right: 10px;
+            top:25px;
+            line-height: 15px;
+            text-align: center;
+            opacity: 0.8;
+        }
+        #xingxiangka{
+            background: #000000;
+            /*background-size: contain;*/
+        }
+        #xingxiangka img{
+            width: 100%;
+        }
+        #first{
+
+            height: 350px;
+            background: #000000;
+            position: relative;
+        }
+        #first .yi{
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            top:32%;
+            left:55%;
+            margin-left: -75px;
+        }
+        #first .er{
+            color: white;
+            font-size: 25px;
+            position: absolute;
+            margin-left: -65px;
+            top: 42%;
+            left: 32%;
+        }
+        #button{
+            position: relative;
+            height: 100%;
+        }
+        #button .reg{
+            width: 80px;
+            height: 30px;
+            font-size: 20px;
+            color:orange;
+            position :absolute;
+            left: 55%;
+            margin-left: -120px;
+            top: 62%;
+            border: 1px solid orange;
+            text-align: center;
+            line-height: 30px;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        #button .log{
+            width: 80px;
+            height: 30px;
+            font-size: 20px;
+            color:orange;
+            position: absolute;
+            top: 62%;
+            left: 65%;
+            margin-left: -120px;
+            border: 1px solid orange;
+            text-align: center;
+            line-height: 30px;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        #button .reg:hover,#button .log:hover{
+            opacity: 1;
+            background: orange;
+            color:white;
+        }
+        #mob{
+            position: relative;
+            width: 100%;
+            height: 580px;
+            background: #eee;
+            background-image: url("images/mobile-app-20160705111504.png");
+            background-position:100% 70px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        #mob p{
+            font-size: 30px;
+            color: #000;
+
+        }
+        #mob .ios{
+            width: 80px;
+            height: 30px;
+            color:orange;
+            font-size:25px;
+            border: 1px solid orange;
+
+        }
+        #mob .and{
+            width: 80px;
+            height: 30px;
+            color:orange;
+            font-size:25px;
+            border: 1px solid orange;
+        }
+        #p1{
+            width: 750px;
+            position: absolute;
+            left: 100px;
+            top: 150px;
+        }
+        #xiazai{
+            position: absolute;
+            left: 100px;
+            top: 450px;
+        }
+        #two{
+            width: 100%;
+            overflow: hidden;
+        }
+        #one{
+            width: 50%;
+            height: 595px;
+            float: left;
+            /*background-image: url("images/sbux_tmall-20170103143939.jpg");*/
+            background-repeat: no-repeat;
+            position: relative;
+            /*line-height: 335px;*/
+            /*background-size: contain;*/
+        }
+        #aone{
+            width: 50%;
+            height: 595px;
+            float: left;
+            /*background-image: url("images/grid-cover- 1.jpg");*/
+            background-repeat: no-repeat;
+            position: relative;
+            /*line-height: 335px;*/
+            /*background-size: contain;*/
+        }
+        .hf{
+            position: absolute;
+            left: 40%;
+            top:45%;
+            color: #ff0000;
+        }
+        .hs{
+            position: absolute;
+            left: 35%;
+            top:50%;
+            color: #cccccc;
+        }
+        #div1{
+            width: 100%;
+            height: 350px;
+            /*background: #00ff00;*/
+            position:relative;
+            /*left: 0;*/
+            /*top: 2375px;*/
+        }
+        /*#div2{*/
+            /*margin: 0 auto;*/
+            /*position: absolute;*/
+            /*left: 45%;*/
+            /*top:10%;*/
+        /*}*/
+        #div1 .oneo{
+            position: absolute;
+            top: 25%;
+            left: 47%;
+            font-size: 15px;
+            color: darkorange;
+        }
+        #div1 .ones{
+            font-size: 30px;
+            color: #272727;
+            position: absolute;
+             left:43%;
+            top: 35%;
+        }
+        #div1 .onet{
+            position: absolute;
+            left: 47%;
+            top: 50%;
+        }
+        #div1 .onef{
+            font-size: 20px;
+            color: #3b3b3b;
+            position: absolute;
+            left: 16%;
+            top: 65%;
+        }
+        #div2{
+            position: relative;
+            width:2050px;
+            overflow: hidden;
+            /*background: #00ff00;*/
+            /*height:445px;*/
+        }
+        #div2 img{
+            float: left;
+            margin-right: 10px;
+            width: 280px;
+            height: 280px;
+        }
+        #div3{
+            width: 100%;
+            height: 50px;
+            position: relative;
+        }
+        #circlef{
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top:40%;
+            background: darkorange;
+            cursor: pointer;
+        }
+        #circles{
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #cccccc;
+            position: absolute;
+            left: 51%;
+            top:40%;
+            cursor: pointer;
+        }
+        #circles:hover{
+            background: darkorange;
+        }
+        #div4{
+            width: 100%;
+            height: 600px;
+            background: #000000;
+            position: relative;
+        }
+        #div4 .title1{
+            font-size: 10px;
+            position: absolute;
+            top: 34%;
+            left: 77%;
+        }
+        #div4 .title2{
+            position: absolute;
+            top: 39%;
+            left: 57%;
+        }
+        #picture{
+            position: absolute;
+            left: 7%;
+            top: 10%;
+        }
+        #picture img{
+            width: 480px;
+            height: 528px;
+        }
+        #btn{
+            width: 80px;
+            height: 30px;
+            background: #000;
+            color: #fff;
+            border: 2px solid darkorange;
+            text-align: center;
+            line-height: 23px;
+            position: absolute;
+            left: 65%;
+            top:60%;
+            cursor: pointer;
+        }
+        #btn:hover{
+            background: darkorange;
+            color: #ffffff;
+        }
+        #btn1{
+            width: 120px;
+            height: 30px;
+            background: #000;
+            color: #fff;
+            border: 2px solid darkorange;
+            text-align: center;
+            line-height: 23px;
+            position: absolute;
+            left: 75%;
+            top: 60%;
+            cursor: pointer;
+        }
+        #btn1:hover{
+            background: darkorange;
+            color: #ffffff;
+        }
+        #end{
+            width: 100%;
+            height:90px;
+            background: #333333;
+            position: relative;
+        }
+        #end .end1{
+            position: absolute;
+            left: 10%;
+            top: 26%;
+            color: #fff;
+        }
+        #end .end2{
+            position: absolute;
+            top: 26%;
+            left: 81%;
+        }
+        #end .end2 img{
+            width: 30px;
+            height: 30px;
+        }
+        #end .end3{
+            position: absolute;
+            top: 26%;
+            left: 86%;
+        }
+        #end .end3 img{
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="caidan">
+        <i class="icon icon-reorder"></i><br/>
+        <a href="#" style="font-size:13px">菜单</a>
+    </div>
+    <div id="logo"><img src="images/logo.svg" alt=""/></div>
+    <ul>
+        <li><a href="">星享俱乐部</a></li>
+        <li><a href="" style="color: orange">登陆或注册</a></li>
+    </ul>
+    <div id="content">
+        <img src="images/kv-desktop-cn-20161220150546.jpg" alt=""/>
+        <span id="more">了解更多</span>
+        <span id="adv">广告</span>
+    </div>
+    <div id="xingxiangka">
+        <img src="images/rewards.jpg" alt=""/>
+        <div id="first">
+            <p class="yi">星享俱乐部</p>
+            <p class="er">开启您的星享之旅，星星越多、会员等级越高、好礼越丰富</p>
+            <div id="button">
+                <a class="reg">注册</a>
+                <a class="log">登陆</a>
+            </div>
+        </div>
+    </div>
+    <div id="mob">
+        <div id="p1">
+            <p>
+                星巴克中国官方应用<br/><br/>
+                更新或下载全新星巴克中国官方APP，开启更便捷的星<br/>巴克体验。
+                将新购买的星礼卡轻松关联至您的账户，即<br/>时通过手机进行移动支付，查看消费记录，管理卡片。
+            </p>
+        </div>
+    <span id="xiazai">
+        <a class="ios">IOS下载</a>&nbsp;&nbsp;
+        <a class="and">Android下载</a>
+    </span>
+    </div>
+    <div id="two">
+        <div id="one">
+            <img src="images/sbux_tmall-20170103143939.jpg" alt=""/>
+            <h3 class="hf" style="font-size: 15px">星巴克天猫旗舰店</h3><br/>
+            <h3 class="hs" style="font-size: 25px">新年*心意相随</h3>
+        </div>
+        <div id="aone">
+            <img src="images/grid-cover-1.jpg" alt=""/>
+            <h3 class="hf" style="font-size: 15px">生肖迎新春</h3><br/>
+            <h3 class="hs" style="font-size: 25px">点击了解更多</h3>
+        </div>
+    </div>
+    <div id="div1">
+            <h2 class="oneo">星巴克经典</h2><br/><br/><br/>
+            <h3 class="ones">咖啡师的最爱</h3>
+            <a href="" class="onet">------------</a>
+            <h3 class="onef">回溯多年历史，星巴克的技巧纯熟的咖啡师一直用心制作星巴克的经典与饮品。</h3>
+    </div>
+    <div id="div2">
+        <div class="intr"><img src="images/starbucks-flatwhite-20151026112356.jpg" alt=""/></div>
+        <div class="intr"><img src="images/hot-caramel-macchiato-20151022185811.jpg" alt=""/></div>
+        <div class="intr"><img src="images/hot-green-tea-latte-20160819155511.jpg" alt=""/></div>
+        <div class="intr"><img src="images/hot-extra-shot-mocha-20151022185836.jpg" alt=""/></div>
+        <div class="intr"><img src="images/green-tea-cream-frappuccino-20151022185851.jpeg" alt=""/></div>
+        <div class="intr"><img src="images/caramel-espresso-frappucino-20151022185901.jpeg" alt=""/></div>
+        <div class="intr"><img src="images/Starbucks-Hazelnut-Latte-20150924183645.jpg" alt=""/></div>
+    </div>
+    <div id="div3">
+        <div id="circlef"></div>
+        <div id="circles"></div>
+    </div>
+    <div id="div4">
+        <div id="picture"><img src="images/reserve-coffee-20161214180220.png" alt=""/></div>
+            <p class="title1" style="color: white">我们优质的咖啡产品</p>
+            <p class="title2" style="color: white">我们持续在全世界各地寻找优质而稀少的咖啡豆，我们喜爱与您分享我们的新发现。
+                我们在星巴克位于总部西雅图的星巴克臻选™咖啡烘焙工坊及品鉴馆为您精心烘焙星巴克臻选™咖啡。</p>
+        <button id="btn">了解更多</button>
+        <button id="btn1">点击这里购买</button>
+    </div>
+    <div id="end">
+         <p  class="end1" style="font-size: 10px">
+             © 2017 Starbucks Corporation.<br>
+             All rights reserved. 沪ICP备09020061号<br>
+             沪公网安备 31010402000253号
+         </p>
+        <div class="end2"><img src="images/wechat.svg" alt=""/></div>
+        <div class="end3"><img src="images/weibo.svg" alt=""/></div>
+    </div>
+
+</div>
+</body>
+</html>

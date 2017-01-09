@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #stage{
+            width: 1000px;
+            height: 300px;
+            background: #ccc;
+            box-shadow: 0 0 3px 3px rgba(0,0,0,0.5);
+            margin: 50px auto;
+            overflow: hidden;/*消除外边距合并现象*/
+            -webkit-perspective: 800px;
+            -webkit-perspective-origin:center -50%;
+
+        }
+        #container{
+            width: 128px;
+            height: 100px;
+            /*background: red;*/
+            margin: 50px auto;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            transition:transform 2s ease;
+
+        }
+        #container img{
+            width: 128px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition:transform 3s ease;
+        }
+    </style>
+</head>
+<body>
+<div id="stage">
+    <div id="container">
+
+    </div>
+</div>
+<script>
+    var oContainer=document.getElementById("container");
+    var html="";
+    var x=64/Math.tan(20*Math.PI/180)+20;
+    var index=0;
+    for(var i=0;i<9;i++){
+        html+="<img src='images/"+(i+1)+".jpg'/>";
+    }
+     oContainer.innerHTML=html;
+    oContainer.onclick=function(){
+        index++;
+        oContainer.style.transform="rotateY("+index*40+"deg)"
+    };
+    var aImg=oContainer.getElementsByTagName("img");
+    var idx=9;
+//  第一种方法：  var timer=setInterval (function(){
+//        idx--;
+//        if(idx<0){
+//            clearInterval(timer)
+//        }else{
+//            aImg[idx].style.WebkitTransform="rotateY("+idx*40+"deg) translateZ("+x+"px)"
+//        }
+//    },100)
+//   第二种方法： for(var i=0;i<9;i++){
+//        setTimeout(function(){
+//            idx--;
+//            aImg[idx].style.WebkitTransform="rotateY("+idx*40+"deg) translateZ("+x+"px)"
+//        },(i+1)*100)
+//    }
+    //第三种方法：
+    for(var i=0;i<9;i++){
+        (function(idx){
+            setTimeout(function(){
+              var j=8-idx;
+              aImg[j].style.WebkitTransform="rotateY("+j*40+"deg) translateZ("+x+"px)";
+            },(i+1)*100)
+        })(i)
+    }/*闭包  立即函数的调用*/
+    //第四种方法：
+//    for(var i=0;i<9;i++){
+//        var oImg=new Image();
+//        oImg.onload=function(){
+//            count++;
+//            if(count==9){
+//                var aImg=oContainer.getElementsByTagName("img");
+//                for(var i=0;i<9;i++){
+//                (function(idx){
+//                    setTimeout(function(){
+//                      var j=8-idx;
+//                      aImg[j].style.WebkitTransform="rotateY("+j*40+"deg) translateZ("+x+"px)";
+//                    },(i+1)*100)
+//                })(i)
+//            }
+//            }
+//        }
+//    }
+//    oImg.src='images/'+i+1+'.jpg';
+//    oContainer.appendChild(oImg);
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html   id="top" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Responsive Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link href="css/style.css" rel="stylesheet">-->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            margin-top: 35px;
+            text-align: center;
+        }
+        h3,p{
+            padding: 20px;
+        }
+        .container{
+            width:960px;
+            margin: 0 auto;
+        }
+        #header,#nav,#mainbody,#footer,#sidebar{
+            background: #eee;
+            height: 100px;
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+        #mainbody,#sidebar{
+            height: 300px;
+            float: left;
+        }
+        #mainbody{
+            width: 620px;
+            margin-right: 20px;
+            background: #ddefcb;
+        }
+        #sidebar{
+            width: 320px;
+            background: #ffcbdd;
+        }
+        #footer{
+            clear:both;
+        }
+        #div img{
+            width: 100%;
+            max-width: 100%;
+        }
+        #div{
+            background-image: url("css/01.jpg");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            -webkit-background-size:cover;
+            background-size:cover;
+            margin-bottom: 20px;
+            padding-top:56%;
+        }
+        /*@media (min-width: 1200px) {*/
+            /*.container{*/
+                /*width: 1170px;*/
+            /*}*/
+            /*#mainbody{*/
+                /*width: 770px;*/
+                /*margin-right: 30px;*/
+            /*}*/
+            /*#sidebar{*/
+                /*width: 370px;*/
+            /*}*/
+        /*}*/
+        @media (min-width: 1200px) {
+            .container{
+                width: 1170px;
+            }
+            #mainbody{
+                width: 770px;
+                margin-right: 30px;
+            }
+            #sidebar{
+                width: 370px;
+            }
+        }
+        @media (max-width: 959px) {
+            .container{
+                width: 100%;
+            }
+            #mainbody{
+                width: 67%;
+                margin-right: 3%;
+            }
+            #sidebar{
+                width: 30%;
+                float: right;
+            }
+        }
+        /*@media (max-width: 959px) {*/
+            /*.container{*/
+                /*width: 100%;*/
+            /*}*/
+            /*#mainbody{*/
+                /*width: 67%;*/
+            /*}*/
+            /*#sidebar{*/
+                /*width: 30%;*/
+                /*float: right;*/
+            /*}*/
+        /*}*/
+        #nav li,#nav li a{
+            display: inline-block;
+            padding: 7px 15px;
+            color: #3b3b3b;
+        }
+        #nav li a:hover{
+            background: #eeeeee;
+        }
+        #nav{
+            background: none;
+        }
+        #nav .active{
+            background: #eeeeee;
+        }
+        .toggle-btn{
+            display: none;
+        }
+        @media (max-width: 767px) {
+         #mainbody,#sidebar{
+             width:100%;
+             float: none;
+         }
+            .toggle-btn{
+                font-size: 25px;
+                display:inline-block;
+                position: absolute;
+                background: #000;
+                color: #fff;
+                padding: 7px 10px;
+                top:50px;
+                right:10px;
+            }
+            #nav .close{
+                display: none;
+            }
+            #nav:target .close{
+                display: inline-block;
+            }
+            #nav{
+                display: none;
+            }
+            #nav:target{
+                display: block;
+                position: absolute;
+                top:0;
+                padding-top: 100px;
+                width: 100%;
+            }
+            #nav:target ul{
+                background: #000000;
+            }
+            #nav:target li,#nav:target li a{
+                display: block;
+                text-align: left;
+                color: #eee;
+            }
+            #nav:target li a:hover{
+                background: #3b3b3b;
+            }
+            #nav:target .active{
+                background: #272727;
+            }
+
+        }
+        @media (max-width: 480px) {
+             #div{
+                 background-image: url("css/01_s.jpg");
+             }
+        }
+
+        @media (max-width: 480px) and (min-resolution: 2dppx),(max-width: 480px) and(-webkit-min-device-pixel-ratio: 2){
+            #div{
+                background-image: url("css/01_s_2x.jpg");
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header id="header">
+        <h3>页头</h3>
+    </header>
+    <a href="#nav" class="open toggle-btn"><i class="icon icon-reorder"></i></a>
+    <nav id="nav">
+        <!--<h3>导航</h3>-->
+        <ul>
+            <li><a href="#" class="active">项目1</a></li>
+            <li><a href="#">项目2</a></li>
+            <li><a href="#">项目3</a></li>
+            <li><a href="#">项目4</a></li>
+            <li><a href="#">项目5</a></li>
+        </ul>
+        <a href="#top" class="close toggle-btn"><i class="icon icon-remove-sign"></i></a>
+    </nav>
+    <div id="div"></div>
+    <section id="mainbody">
+        <h3>主体</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+    </section>
+    <aside id="sidebar">
+        <h3>边栏</h3>
+        <p>Donec dolor arcu, interdum sed turpis faucibus, placerat ultricies felis. Donec pulvinar gravida rhoncus. Suspendisse vestibulum est eget dolor lobortis.</p></aside>
+    <footer id="footer">
+        <h3>页脚</h3>
+    </footer>
+</div><!-- end .container -->
+</body>
+</html>
