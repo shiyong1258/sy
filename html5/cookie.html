@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    console.log(1);
+    document.cookie="name=sy";
+    console.log(document.cookie);
+    var date=new Date();
+    date.setDate(10);
+    document.cookie="age=18;expires="+date;
+    console.log(document.cookie);
+</script>
+</body>
+</html>
