@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .class{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<script src="../jquery-1.12.4.js"></script>
+用户名：<input type="text" id="user" value="名称"/><br/><br/>
+密码：<input type="password" id="pass" value="**"/><br/><br/>
+详细信息：<textarea id="pro">详细信息</textarea>
+<script>
+    $("input,#pro").focus(function(){
+        $(this).addClass("class");
+        if($(this).val()==this.defaultValue){
+            this.value="";
+        }
+    }).blur(function(){
+        $(this).removeClass("class");
+        if($(this).val()==""){
+             this.value=this.defaultValue;
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table		{ border:0;border-collapse:collapse;}
+        td	{ font:normal 12px/17px Arial;padding:2px;width:100px;}
+        th			{ font:bold 12px/17px Arial;text-align:left;padding:4px;border-bottom:1px solid #333;width:100px;}
+        .parent		{ background:#FFF38F;cursor:pointer;}  /* 偶数行样式*/
+        .odd		{ background:#FFFFEE;}  /* 奇数行样式*/
+        .selected		{ background:#FF6500;color:#fff;}
+    </style>
+</head>
+<body>
+<script src="../jquery-1.12.4.js"></script>
+<table>
+    <thead>
+    <tr><th>����</th><th>�Ա�</th><th>��ס��</th></tr>
+    </thead>
+    <tbody>
+    <tr class="parent" id="row_01"><td colspan="3">ǰ̨�����</td></tr>
+    <tr class="child_row_01"><td>��ɽ</td><td>��</td><td>�㽭����</td></tr>
+    <tr class="child_row_01"><td>����</td><td>Ů</td><td>�㽭����</td></tr>
+
+    <tr class="parent" id="row_02"><td colspan="3">ǰ̨������</td></tr>
+    <tr class="child_row_02"><td>����</td><td>��</td><td>���ϳ�ɳ</td></tr>
+    <tr class="child_row_02"><td>����</td><td>��</td><td>�㽭����</td></tr>
+
+    <tr class="parent" id="row_03"><td colspan="3">��̨������</td></tr>
+    <tr class="child_row_03"><td>Rain</td><td>��</td><td>�㽭����</td></tr>
+    <tr class="child_row_03"><td>MAXMAN</td><td>Ů</td><td>�㽭����</td></tr>
+    </tbody>
+</table>
+<script>
+    //$(".parent").css("background","red");
+    $(".parent").on("click",function(){
+        if($(this).hasClass("selected")){
+            $(this).removeClass("selected").nextUntil(".parent").show();
+        }else {
+            $(this).addClass("selected").nextUntil(".parent").hide();
+        }
+    })
+</script>
+</body>
+</html>
