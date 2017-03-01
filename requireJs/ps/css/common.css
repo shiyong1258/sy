@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font-family:  Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+}
+.wrapper{
+    width: 1002px;
+    /*height: 120px;*/
+    margin:0 auto;
+    /*background: #E44072;*/
+    overflow: hidden;
+
+}
+.header{
+    background: #ffffff;
+    height: 120px;
+}
+#logo{
+    margin-top: 37px;
+    display: block;
+    float: left;
+}
+#nav{
+    margin:55px 0 0 165px;
+    /*background:#00ff00;*/
+    float: left;
+}
+#nav li{
+    float: left;
+    /*margin-right:52px;*/
+    padding: 0 25px;
+    font-size: 15px;
+    border-right:1px solid #6b6b6b;
+}
+#nav li.selected{
+    color: #00aeff;
+}
+#nav li:last-child{
+    border-right: none;
+}
+.search{
+    float: right;
+    /*padding: 45px 40px 45px 55px;*/
+    margin-top: 45px;
+    width: 130px;
+    height: 30px;
+    background: #f1f3f6;
+}
+.search input{
+    width: 104px;
+    height: 30px;
+    border: none;
+    background: #f1f3f6;
+    outline: none;
+    text-indent: 11px;
+}
+#btn{
+    display: block;
+    width: 26px;
+    height: 30px;
+    background: url("../images/sprite.png") 5px 9px;
+    float: right;
+}
+.banner{
+    /*width: 1280px;*/
+    height: 460px;
+    margin: 0 auto;
+    background:#31333e;
+    position: relative;
+}
+.banner .pl{
+    height: 460px;
+    background-image: url("../images/img01.jpg");
+}
+.left,.right{
+    width: 45px;
+    height: 55px;
+    /*background: #00ff00;*/
+    position: absolute;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    cursor: pointer;
+}
+.left{
+    left: 135px;
+    top: 205px;
+    background: url("../images/sprite.png") -10px 5px;
+}
+.right{
+    right: 135px;
+    top: 205px;
+    background: url("../images/sprite.png") -49px 5px ;
+}
+.show .wrapper{
+    width: 1080px;
+    height: 492px;
+    /*background: #00ff00;*/
+    overflow: hidden;
+}
+.show .wrapper p{
+      text-align: center;
+}
+.show h3{
+    margin-top: 86px;
+    margin-left: 122px;
+    /*float: left;*/
+    font-size: 20px;
+}
+.one, .two ,.three{
+    float: left;
+    width: 360px;
+    height: 400px;
+}
+.web,.social,.app{
+    width: 125px;
+    height: 125px;
+    margin-left: 122px;
+}
+.web{
+    background: url("../images/sprite.png") 13px -50px;
+}
+.social{
+    background: url("../images/sprite.png") -100px -50px;
+}
+.app{
+    background: url("../images/sprite.png") -215px -50px;
+}
+.rm{
+    padding-top: 33px;
+    color:#26b4ff;
+}
+.work{
+    background: #e2e7ed;
+}
+.work .wrapper{
+    height: 500px;
+    /*background:#ccc;*/
+}
+.work h3{
+    font-size: 30px;
+    color: #6c6c6d;
+    height: 60px;
+    margin-top: 23px;
+}
+.work li{
+    float: left;
+    width:250px;
+    height: 200px;
+}
+.work li.imged{
+    background:#00aeff;
+    position: relative;
+}
+.work li p{
+    margin-left:28px;
+    margin-top: 15px;
+    color: #fff;
+}
+.work li.imged img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.clients{
+    height: 155px;
+    margin-top: 32px;
+    font-size: 30px;
+    color: #626262;
+}
+.clients .wrapper{
+    position: relative;
+}
+.clients ul li{
+    float: left;
+    margin-left:60px;
+    margin-top: 22px;
+}
+.clients ul li:first-child{
+    margin-left:84px;
+}
+.left1,.right1{
+    width: 45px;
+    height: 55px;
+    background: #00ff00;
+    position: absolute;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    cursor: pointer;
+}
+.left1{
+    left: -10px;
+    top: 60px;
+    background: url("../images/sprite.png") -10px 5px;
+}
+.right1{
+    right: -10px;
+    top: 60px;
+    background: url("../images/sprite.png") -49px 5px ;
+}
+.footer{
+    height: 176px;
+    background:#626262;
+}
+.footer li{
+    float: left;
+    margin-top: 45px;
+    border-right:1px solid #fff;
+    padding:0 15px;
+    color: #fff;
+    font-size: 15px;
+}
+.footer li:last-child{
+    border-right: none;
+}
+.footer .wrapper{
+    height: 176px;
+    position: relative;
+}
+/*#a{*/
+    /*position: relative;*/
+    /*height: 150px;*/
+/*}*/
+
+.all{
+    position: absolute;
+    left: 15px;
+    /*top:15px;*/
+    top:60px;
+    width: 300px;
+    height: 25px;
+    float: left;
+    /*padding-top: 50px;*/
+    color: #fff;
+    /*display: block;*/
+}
+.pp{
+    position: absolute;
+    left:15px;
+    top:125px;
+    color: #fff;
+}
+.logo1{
+    width: 280px;
+    height: 40px;
+    /*background: #00ff00;*/
+    background: url("../images/sprite.png") 50px 50px;
+    position: absolute;
+    top: 68px;
+    right: 0;
+}
+

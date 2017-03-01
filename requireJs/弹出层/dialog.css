@@ -1,0 +1,29 @@
+.dialog-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+}
+.dialog-box{
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -150px;
+    background: #DFDFDF;
+}
+.dialog-title{
+    width:100%;
+    height: 30px;
+    background: #37C7D4;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
